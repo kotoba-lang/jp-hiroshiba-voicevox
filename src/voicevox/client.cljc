@@ -21,15 +21,15 @@
   `:body` may be a String (JSON) or absent; synthesis responses are raw WAV
   bytes, returned as a byte[] rather than routed through the JSON codec."
   (:require [clojure.string :as str]
-            #?(:clj [jsonista.core :as json])))
+            #?(:clj [json.compat :as json])))
 
 (defn default-base-url []
   #?(:clj (or (System/getenv "VOICEVOX_URL") "http://localhost:50021")
      :cljs "http://localhost:50021"))
 
-#?(:clj (def mapper (json/object-mapper {:decode-key-fn keyword})))
-#?(:clj (defn write-json [x] (json/write-value-as-string x mapper)))
-#?(:clj (defn read-json [s] (json/read-value s mapper)))
+#?(:clj (defn write-json [x] (json/generate-string x)))
+#?(:clj (defn read-json [s]
+          (json/parse-string (if (bytes? s) (String. ^bytes s "UTF-8") s) true)))
 
 #?(:clj
 (defn jvm-http-fn
