@@ -3,7 +3,7 @@
   with the speedScale/pitchScale override logic
   `ai-gftd-project-yukkuri`'s `yukkuri.voicevox/synthesize-plan` described
   as a plan only. This is the real execution of that plan."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [voicevox.client :as client]))
 
 #?(:clj

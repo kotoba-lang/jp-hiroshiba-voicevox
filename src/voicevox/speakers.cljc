@@ -7,7 +7,7 @@
   yukkuri project's specific env vars (VOICEVOX_SPEAKER_LEFT/RIGHT) --
   those stay in `yukkuri.channels`'s `default-identity`; this namespace
   takes explicit args so any project can reuse the same style catalog."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; emotion -> style_id table, keyed by base style_id (2026-05 voicevox_engine 0.21).
 (def emotion-style
