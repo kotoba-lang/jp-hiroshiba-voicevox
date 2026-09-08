@@ -20,7 +20,7 @@
   convention `kotoba-lang/com-cloudflare`/`kotoba-lang/com-youtube` use) --
   `:body` may be a String (JSON) or absent; synthesis responses are raw WAV
   bytes, returned as a byte[] rather than routed through the JSON codec."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             #?(:clj [json.compat :as json])))
 
 (defn default-base-url []
