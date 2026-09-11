@@ -71,5 +71,5 @@ Default engine URL: `VOICEVOX_URL` env var, else `http://localhost:50021`
 Run tests:
 
 ```sh
-clojure -M:test
+kbb -M:test
 ```
